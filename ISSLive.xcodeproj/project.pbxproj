@@ -1,0 +1,325 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FB2A8AE1191347E7009AA24F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB2A8AE0191347E7009AA24F /* Cocoa.framework */; };
+		FB2A8AE3191347E7009AA24F /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB2A8AE2191347E7009AA24F /* ScreenSaver.framework */; };
+		FB2A8AED191347E7009AA24F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB2A8AEB191347E7009AA24F /* InfoPlist.strings */; };
+		FB2A8AF1191347E7009AA24F /* ISSLiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2A8AF0191347E7009AA24F /* ISSLiveView.m */; };
+		FB2A8AF819134BEC009AA24F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB2A8AF719134BEC009AA24F /* WebKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FB2A8ADD191347E7009AA24F /* ISSLive.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ISSLive.saver; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB2A8AE0191347E7009AA24F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		FB2A8AE2191347E7009AA24F /* ScreenSaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScreenSaver.framework; path = System/Library/Frameworks/ScreenSaver.framework; sourceTree = SDKROOT; };
+		FB2A8AE5191347E7009AA24F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		FB2A8AE6191347E7009AA24F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		FB2A8AE7191347E7009AA24F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FB2A8AEA191347E7009AA24F /* ISSLive-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ISSLive-Info.plist"; sourceTree = "<group>"; };
+		FB2A8AEC191347E7009AA24F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FB2A8AEE191347E7009AA24F /* ISSLive-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ISSLive-Prefix.pch"; sourceTree = "<group>"; };
+		FB2A8AEF191347E7009AA24F /* ISSLiveView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISSLiveView.h; sourceTree = "<group>"; };
+		FB2A8AF0191347E7009AA24F /* ISSLiveView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ISSLiveView.m; sourceTree = "<group>"; };
+		FB2A8AF719134BEC009AA24F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FB2A8AD8191347E7009AA24F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB2A8AF819134BEC009AA24F /* WebKit.framework in Frameworks */,
+				FB2A8AE3191347E7009AA24F /* ScreenSaver.framework in Frameworks */,
+				FB2A8AE1191347E7009AA24F /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FB2A8AD2191347E6009AA24F = {
+			isa = PBXGroup;
+			children = (
+				FB2A8AE8191347E7009AA24F /* ISSLive */,
+				FB2A8ADF191347E7009AA24F /* Frameworks */,
+				FB2A8ADE191347E7009AA24F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FB2A8ADE191347E7009AA24F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB2A8ADD191347E7009AA24F /* ISSLive.saver */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB2A8ADF191347E7009AA24F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB2A8AF719134BEC009AA24F /* WebKit.framework */,
+				FB2A8AE0191347E7009AA24F /* Cocoa.framework */,
+				FB2A8AE2191347E7009AA24F /* ScreenSaver.framework */,
+				FB2A8AE4191347E7009AA24F /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FB2A8AE4191347E7009AA24F /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB2A8AE5191347E7009AA24F /* AppKit.framework */,
+				FB2A8AE6191347E7009AA24F /* CoreData.framework */,
+				FB2A8AE7191347E7009AA24F /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		FB2A8AE8191347E7009AA24F /* ISSLive */ = {
+			isa = PBXGroup;
+			children = (
+				FB2A8AEF191347E7009AA24F /* ISSLiveView.h */,
+				FB2A8AF0191347E7009AA24F /* ISSLiveView.m */,
+				FB2A8AE9191347E7009AA24F /* Supporting Files */,
+			);
+			path = ISSLive;
+			sourceTree = "<group>";
+		};
+		FB2A8AE9191347E7009AA24F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB2A8AEA191347E7009AA24F /* ISSLive-Info.plist */,
+				FB2A8AEB191347E7009AA24F /* InfoPlist.strings */,
+				FB2A8AEE191347E7009AA24F /* ISSLive-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		FB2A8AD9191347E7009AA24F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		FB2A8ADC191347E7009AA24F /* ISSLive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB2A8AF4191347E7009AA24F /* Build configuration list for PBXNativeTarget "ISSLive" */;
+			buildPhases = (
+				FB2A8AD7191347E7009AA24F /* Sources */,
+				FB2A8AD8191347E7009AA24F /* Frameworks */,
+				FB2A8AD9191347E7009AA24F /* Headers */,
+				FB2A8ADA191347E7009AA24F /* Resources */,
+				FB2A8ADB191347E7009AA24F /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ISSLive;
+			productName = ISSLive;
+			productReference = FB2A8ADD191347E7009AA24F /* ISSLive.saver */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB2A8AD3191347E7009AA24F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Bailey Carlson";
+			};
+			buildConfigurationList = FB2A8AD6191347E7009AA24F /* Build configuration list for PBXProject "ISSLive" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FB2A8AD2191347E6009AA24F;
+			productRefGroup = FB2A8ADE191347E7009AA24F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB2A8ADC191347E7009AA24F /* ISSLive */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FB2A8ADA191347E7009AA24F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB2A8AED191347E7009AA24F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		FB2A8ADB191347E7009AA24F /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FB2A8AD7191347E7009AA24F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB2A8AF1191347E7009AA24F /* ISSLiveView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FB2A8AEB191347E7009AA24F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB2A8AEC191347E7009AA24F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FB2A8AF2191347E7009AA24F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		FB2A8AF3191347E7009AA24F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		FB2A8AF5191347E7009AA24F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ISSLive/ISSLive-Prefix.pch";
+				INFOPLIST_FILE = "ISSLive/ISSLive-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = saver;
+			};
+			name = Debug;
+		};
+		FB2A8AF6191347E7009AA24F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ISSLive/ISSLive-Prefix.pch";
+				INFOPLIST_FILE = "ISSLive/ISSLive-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = saver;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB2A8AD6191347E7009AA24F /* Build configuration list for PBXProject "ISSLive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB2A8AF2191347E7009AA24F /* Debug */,
+				FB2A8AF3191347E7009AA24F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB2A8AF4191347E7009AA24F /* Build configuration list for PBXNativeTarget "ISSLive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB2A8AF5191347E7009AA24F /* Debug */,
+				FB2A8AF6191347E7009AA24F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FB2A8AD3191347E7009AA24F /* Project object */;
+}

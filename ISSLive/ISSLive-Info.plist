@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Current URL</key>
+	<string>http://iphone-streaming.ustream.tv/uhls/17074538/streams/live/iphone/playlist.m3u8</string>
+	<key>Current Channel</key>
+	<string>17074538</string>
+	<key>Channels</key>
+	<dict>
+		<key>NASA TV</key>
+		<string></string>
+		<key>ISS HDev</key>
+		<string>17074538</string>
+	</dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>ISSLive</string>
+	<key>CFBundleIconFile</key>
+	<string></string>
+	<key>CFBundleIdentifier</key>
+	<string>Bailey-Carlson.${PRODUCT_NAME:rfc1034identifier}</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>ISSLive</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2014 Bailey Carlson. All rights reserved.</string>
+	<key>NSPrincipalClass</key>
+	<string>ISSLiveView</string>
+</dict>
+</plist>
