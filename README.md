@@ -12,4 +12,4 @@ Config
 =======
 
 Can be reconfigured to stream any QuickTime compatible stream. 
-By default uses the URL, http://iphone-streaming.ustream.tv/uhls/17074538/streams/live/iphone/playlist.m3u8 but this URL can be modified to another ustream channel by modifying the channel number in the URL or can be replaced entirely with a different stream.
+By default uses the URL, http://iphone-streaming.ustream.tv/uhls/17074538/streams/live/iphone/playlist.m3u8 but this URL can be modified to another ustream channel by modifying the channel number in the URL or can be replaced entirely with a different stream in the screen saver options.
