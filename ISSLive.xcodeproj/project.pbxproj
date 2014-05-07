@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB23F7F8191AB3DB00E7221B /* Configure.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB23F7F7191AB3DB00E7221B /* Configure.xib */; };
 		FB2A8AE1191347E7009AA24F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB2A8AE0191347E7009AA24F /* Cocoa.framework */; };
 		FB2A8AE3191347E7009AA24F /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB2A8AE2191347E7009AA24F /* ScreenSaver.framework */; };
 		FB2A8AED191347E7009AA24F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB2A8AEB191347E7009AA24F /* InfoPlist.strings */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB23F7F7191AB3DB00E7221B /* Configure.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Configure.xib; sourceTree = "<group>"; };
 		FB2A8ADD191347E7009AA24F /* ISSLive.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ISSLive.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB2A8AE0191347E7009AA24F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FB2A8AE2191347E7009AA24F /* ScreenSaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScreenSaver.framework; path = System/Library/Frameworks/ScreenSaver.framework; sourceTree = SDKROOT; };
@@ -84,6 +86,7 @@
 		FB2A8AE8191347E7009AA24F /* ISSLive */ = {
 			isa = PBXGroup;
 			children = (
+				FB23F7F7191AB3DB00E7221B /* Configure.xib */,
 				FB2A8AEF191347E7009AA24F /* ISSLiveView.h */,
 				FB2A8AF0191347E7009AA24F /* ISSLiveView.m */,
 				FB2A8AE9191347E7009AA24F /* Supporting Files */,
@@ -164,6 +167,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB23F7F8191AB3DB00E7221B /* Configure.xib in Resources */,
 				FB2A8AED191347E7009AA24F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +322,7 @@
 				FB2A8AF6191347E7009AA24F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
