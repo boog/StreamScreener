@@ -1,7 +1,7 @@
 ISSLive
 =======
 
-Mac OS X 10.9 screensaver for ustream video, defaults to ISS-HDEV channel that streams HD video live from the space station.
+Mac OS X 10.9 screensaver for streaming video, defaults to ISS-HDEV-Payload ustream channel that streams HD video live from the space station.
 
 Installation
 =======
