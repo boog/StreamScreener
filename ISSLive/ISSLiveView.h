@@ -11,15 +11,17 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface ISSLiveView : ScreenSaverView {
-    AVPlayerView* playerView;
-    AVPlayer* player;
-    NSPanel *_theWindow;
-    NSString* _currentURL;
-
-    __weak NSTextField *_streamURLTextBox;
+    ScreenSaverDefaults* defaults;
+    NSMutableArray* streams;
 }
+
+- (IBAction)addClicked:(id)sender;
 - (IBAction)saveClicked:(id)sender;
+- (IBAction)removeClicked:(id)sender;
+
+@property (weak) IBOutlet NSButton *muteCheckbox;
+@property (weak) IBOutlet NSTableView *tableView;
+@property (weak) IBOutlet NSTextField *streamURLText;
 @property (strong) IBOutlet NSPanel *theWindow;
-@property (strong) IBOutlet NSString *currentURL;
-@property (weak) IBOutlet NSTextField *streamURLTextBox;
+@property (strong) IBOutlet NSArrayController *arrayController;
 @end
