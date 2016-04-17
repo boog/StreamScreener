@@ -183,7 +183,7 @@ static NSString* const defaultMuteKey = @"MuteAudio";
         [_arrayController addObjects:streams];
         // Select first item
         [_tableView selectRowIndexes:0 byExtendingSelection:NO];
-        // Enable Drag-drop
+        // Enable Drag-drop reorder
         [_tableView registerForDraggedTypes: [NSArray arrayWithObject: @"public.text"]];
     }
     bool muted = [defaults boolForKey:defaultMuteKey];
@@ -196,6 +196,7 @@ static NSString* const defaultMuteKey = @"MuteAudio";
                 validateDrop:(id<NSDraggingInfo>)info
                  proposedRow:(NSInteger)row
        proposedDropOperation:(NSTableViewDropOperation)operation {
+    // Can item drag
     BOOL canDrag = row >= 0;
     if (canDrag) {
         return NSDragOperationMove;
@@ -208,18 +209,15 @@ static NSString* const defaultMuteKey = @"MuteAudio";
        acceptDrop:(id<NSDraggingInfo>)info
               row:(NSInteger)row
     dropOperation:(NSTableViewDropOperation)operation {
-
+    // Item drag end move position
     NSPasteboard *p = [info draggingPasteboard];
     NSString *rowIndex = [p stringForType:@"public.text"];
     NSInteger index = [rowIndex integerValue];
     
-    NSLog(@"target:%d", index);
-    NSLog(@"dest:%d", row);
     NSArray* items = [_arrayController arrangedObjects];
     id target = [items objectAtIndex:index];
-    NSLog(@"url:%@", target);
+    
     if (row >= [items count]) {
-        NSLog(@"Index too big");
         row = [items count] - 1;
     }
     
@@ -233,7 +231,7 @@ static NSString* const defaultMuteKey = @"MuteAudio";
 - (id<NSPasteboardWriting>)tableView:(NSTableView *)tableView
               pasteboardWriterForRow:(NSInteger)row {
     NSString *identifier = [@(row) stringValue];
-    
+    // Item drag start, put item in pasteboard
     NSPasteboardItem *pboardItem = [[NSPasteboardItem alloc] init];
     [pboardItem setString:identifier forType: @"public.text"];
     
