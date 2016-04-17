@@ -10,7 +10,7 @@
 #import <AVKit/AVKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface ISSLiveView : ScreenSaverView {
+@interface ISSLiveView : ScreenSaverView <NSTableViewDataSource> {
     ScreenSaverDefaults* defaults;
     NSMutableArray* streams;
 }

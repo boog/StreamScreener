@@ -145,11 +145,61 @@ static NSString* const defaultMuteKey = @"MuteAudio";
         [_arrayController addObjects:streams];
         // Select first item
         [_tableView selectRowIndexes:0 byExtendingSelection:NO];
+        // Enable Drag-drop
+        [_tableView registerForDraggedTypes: [NSArray arrayWithObject: @"public.text"]];
     }
     bool muted = [defaults boolForKey:defaultMuteKey];
     [_muteCheckbox setState:muted ? NSOnState : NSOffState];
     
     return _theWindow;
+}
+
+- (NSDragOperation)tableView:(NSTableView *)aTableView
+                validateDrop:(id<NSDraggingInfo>)info
+                 proposedRow:(NSInteger)row
+       proposedDropOperation:(NSTableViewDropOperation)operation {
+    BOOL canDrag = row >= 0;
+    if (canDrag) {
+        return NSDragOperationMove;
+    }else {
+        return NSDragOperationNone;
+    }
+}
+
+- (BOOL)tableView:(NSTableView *)aTableView
+       acceptDrop:(id<NSDraggingInfo>)info
+              row:(NSInteger)row
+    dropOperation:(NSTableViewDropOperation)operation {
+
+    NSPasteboard *p = [info draggingPasteboard];
+    NSString *rowIndex = [p stringForType:@"public.text"];
+    NSInteger index = [rowIndex integerValue];
+    
+    NSLog(@"target:%d", index);
+    NSLog(@"dest:%d", row);
+    NSArray* items = [_arrayController arrangedObjects];
+    id target = [items objectAtIndex:index];
+    NSLog(@"url:%@", target);
+    if (row >= [items count]) {
+        NSLog(@"Index too big");
+        row = [items count] - 1;
+    }
+    
+    [_arrayController removeObject:target];
+    [_arrayController insertObject:target atArrangedObjectIndex:row];
+    [aTableView reloadData];
+
+    return YES;
+}
+
+- (id<NSPasteboardWriting>)tableView:(NSTableView *)tableView
+              pasteboardWriterForRow:(NSInteger)row {
+    NSString *identifier = [@(row) stringValue];
+    
+    NSPasteboardItem *pboardItem = [[NSPasteboardItem alloc] init];
+    [pboardItem setString:identifier forType: @"public.text"];
+    
+    return pboardItem;
 }
 
 - (IBAction)saveClicked:(id)sender {
