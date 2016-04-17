@@ -140,10 +140,13 @@ static NSString* const defaultMuteKey = @"MuteAudio";
         // Initialize default values
         defaults = [ScreenSaverDefaults defaultsForModuleWithName:MyModuleName];
         NSArray* defaultStreams = [NSArray arrayWithObjects:
-                                          // ISS HDev live stream
-                                          @"http://iphone-streaming.ustream.tv/uhls/17074538/streams/live/iphone/playlist.m3u8",
-                                          // NASA TV
-                                          @"http://iphone-streaming.ustream.tv/uhls/6540154/streams/live/iphone/playlist.m3u8", nil];
+                                        // ISS HDev live stream
+                                        @"http://iphone-streaming.ustream.tv/uhls/17074538/streams/live/iphone/playlist.m3u8",
+                                        // NASA TV
+                                        @"http://iphone-streaming.ustream.tv/uhls/6540154/streams/live/iphone/playlist.m3u8",
+                                        // ISS live stream
+                                        //@"http://iphone-streaming.ustream.tv/uhls/9408562/streams/live/iphone/playlist.m3u8",
+                                   nil];
         [defaults registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:
                                     defaultStreams, defaultStreamsKey,
                                     YES, defaultMuteKey,
