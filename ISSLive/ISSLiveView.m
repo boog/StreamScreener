@@ -17,19 +17,24 @@ static NSString* const defaultMuteKey = @"MuteAudio";
 - (id)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview
 {
     self = [super initWithFrame:frame isPreview:isPreview];
-    if (self && !isPreview) {
+    if (self) {
         [self configureDefaults];
         
         long numScreens = [[NSScreen screens] count];
+        if (isPreview) {
+            numScreens = 1;
+            [defaults setBool:YES forKey:defaultMuteKey];
+        }
         if (numScreens < 2)
         {
+            frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
             // Split screens
             for (NSString* url in streams)
             {
                 NSURL* parsedUrl = [NSURL URLWithString:url];
                 if (parsedUrl)
                 {
-                    [self startPlayingURL:parsedUrl withFrame:frame];
+                    [self startPlayingURL:parsedUrl withFrame:frame splitScreen:YES];
                 }
             }
         }
@@ -44,14 +49,28 @@ static NSString* const defaultMuteKey = @"MuteAudio";
                     frame.origin.y >= screenFrame.origin.y &&
                     frame.origin.x + frame.size.width <= screenFrame.origin.x + screenFrame.size.width &&
                     frame.origin.y + frame.size.height <= screenFrame.origin.y + screenFrame.size.height) {
-                    if (i < [streams count])
+                    screenFrame = CGRectMake(0, 0, screenFrame.size.width, screenFrame.size.height);
+                    if (i == 0)
                     {
+                        // Main monitor, fullscreen
                         NSString* urlStr = [streams objectAtIndex:i];
                         NSURL* url = [NSURL URLWithString:urlStr];
                         if (url)
                         {
-                            frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
-                            [self startPlayingURL:url  withFrame:frame];
+                            [self startPlayingURL:url withFrame:screenFrame splitScreen:NO];
+                        }
+                    }
+                    else
+                    {
+                        [streams removeObjectAtIndex:0];
+                        // Secondary monitors, split screens
+                        for (NSString* url in streams)
+                        {
+                            NSURL* parsedUrl = [NSURL URLWithString:url];
+                            if (parsedUrl)
+                            {
+                                [self startPlayingURL:parsedUrl withFrame:screenFrame splitScreen:YES];
+                            }
                         }
                     }
                 }
@@ -62,28 +81,44 @@ static NSString* const defaultMuteKey = @"MuteAudio";
     return self;
 }
 
-- (AVPlayerView*)startPlayingURL:(NSURL*)url withFrame:(NSRect)frame
+- (AVPlayerView*)startPlayingURL:(NSURL*)url withFrame:(NSRect)frame splitScreen:(BOOL)isSplit
 {
-    // Determine player view frame
-    long numPlayers = [[self subviews] count] + 1;
-    long numScreens = [[NSScreen screens] count];
-    
-    if (numScreens == 1 && numPlayers > 1)
+//    NSLog(@"origin-x:%f", frame.origin.x);
+//    NSLog(@"origin-y:%f", frame.origin.y);
+//    NSLog(@"height:%f", frame.size.height);
+//    NSLog(@"width:%f", frame.size.width);
+    if ([[self subviews] count] > 0)
     {
         // Do split screen to play additional streams
-        NSView* victim = [[self subviews] lastObject];
-        if (victim.frame.size.width < victim.frame.size.height)
+        NSView* victim = nil;
+        CGFloat max = 0;
+        // Vicitimize biggest view
+        for (NSView* view in [self subviews]) {
+            CGFloat area = view.frame.size.width * view.frame.size.height;
+            if (area > max) {
+                victim = view;
+                max = area;
+            }
+        }
+        CGFloat aspectRatio = 1.8; // ~16:9
+        if (victim.frame.size.width / victim.frame.size.height < aspectRatio)
         {
-            frame = CGRectMake(victim.frame.origin.x, victim.frame.origin.y, victim.frame.size.width, victim.frame.size.height / 2);
-            [victim setFrame:CGRectMake(0, victim.frame.size.height / 2, victim.frame.size.width, victim.frame.size.height / 2)];
+            // Cut in half vertically
+            CGFloat halfHeight = floor(victim.frame.size.height / 2.0);
+            frame = CGRectMake(victim.frame.origin.x, victim.frame.origin.y, victim.frame.size.width, halfHeight);
+            [victim setFrame:CGRectMake(victim.frame.origin.x, halfHeight, victim.frame.size.width, victim.frame.size.height / 2)];
+            NSLog(@"Set height / 2: %f", halfHeight);
         }
         else
         {
-            frame = CGRectMake(victim.frame.origin.x, victim.frame.origin.y, victim.frame.size.width / 2, victim.frame.size.height);
-            [victim setFrame:CGRectMake(victim.frame.size.width / 2, 0, victim.frame.size.width / 2, victim.frame.size.height)];
+            // Cut in half horizontally
+            CGFloat halfWidth = floor(victim.frame.size.width / 2.0);
+            frame = CGRectMake(victim.frame.origin.x, victim.frame.origin.y, halfWidth, victim.frame.size.height);
+            [victim setFrame:CGRectMake(halfWidth, victim.frame.origin.y, halfWidth, victim.frame.size.height)];
+            NSLog(@"Set width / 2: %f", halfWidth);
         }
     }
-    
+
     // Add player subview
     AVPlayerView* playerView = [[AVPlayerView alloc] initWithFrame:frame];
     AVPlayerItem* playerItem = [[AVPlayerItem alloc] initWithURL:url];
